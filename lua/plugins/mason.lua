@@ -24,6 +24,9 @@ mason_lspconfig.setup({
 local ok, lspconfig = pcall(require, "lspconfig")
 if not ok then print("lspconfig not found!"); return end
 
+local ok, cmp_lsp = pcall(require, "cmp_nvim_lsp")
+if not ok then print("cmp-nvim-lsp not found!"); return end
+
 local on_attach = function(client, bufnr)
     local bufopts = {noremap=true, silent=true, buffer=bufnr}
     vim.keymap.set("n", "gd", vim.lsp.buf.definition , bufopts)
@@ -33,7 +36,10 @@ local on_attach = function(client, bufnr)
     vim.keymap.set("n", "<leader><leader>", vim.lsp.buf.format , bufopts)
 end
 
-lspconfig.clangd.setup({on_attach = on_attach})
+lspconfig.clangd.setup({
+  on_attach = on_attach,
+  capabilities = cmp_lsp.default_capabilities()
+})
 
 --
 

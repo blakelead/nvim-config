@@ -8,6 +8,7 @@ if not ok then return end
 treesitter.setup({
     auto_install = true,
     indent = { enable = true },
+    highlight = { enable = true },
     -- list of parser names
     ensure_installed = {
         "bash",

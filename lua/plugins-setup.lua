@@ -47,6 +47,10 @@ return packer.startup(function(use)
     use {"jay-babu/mason-null-ls.nvim"}
     use {"jose-elias-alvarez/null-ls.nvim"}
     use {"civitasv/cmake-tools.nvim"}
+    use {"hrsh7th/cmp-nvim-lsp"}
+    use {"hrsh7th/nvim-cmp"}
+    use {"hrsh7th/cmp-vsnip"}
+    use {"hrsh7th/vim-vsnip"}
 
     if packer_bootstrap then packer.sync() end
 end)
